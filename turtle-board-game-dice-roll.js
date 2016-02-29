@@ -14,6 +14,14 @@ function roll_(strCell)
   } catch(e) {Browser.msgBox(e.message);}
 }
 
+//+++++++++++++++++++
+    function clean_board_()    {
+      var clean_range=SpreadsheetApp.getActiveSpreadsheet().getSheetByName("board").getRange("A1:F6");
+      clean_range.setBackground("white");
+      clean_range.setValue("");
+    }
+    
+//---------------------
 
 function rollTheDie()
 {
@@ -22,6 +30,7 @@ function rollTheDie()
   //var aCells = ["A1","B1","C1","D1","E1","F1","G1"];
   var aCells = ["B2","B3","B4","B5","B6","B7","B9","B10","B12","B13","B14","B15","B16","B17"];
   var sWhich, iWhich;
+  clean_board_();
   try
   {
     
@@ -48,12 +57,14 @@ function rollTheDie()
           }
         }    
     
-    
 //---------------------
+
 
 function create_board_manual_(cell,letter) //test NOT ACTAULLY USED
 {
+  
   var c;  
+  
   try
   {
     
@@ -63,19 +74,25 @@ function create_board_manual_(cell,letter) //test NOT ACTAULLY USED
     
     c = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("board").getRange(cell4);
     c.setValue(letter);
+    if(letter=="X") c.setBackground("darkgrey");
+    if(letter=="G") c.setBackground("yellow");
+    if(letter=="T") c.setBackground("green");
   } catch(e) {Browser.msgBox(e.message);}
 }    
     
 //++++++++++++++++CREATE BOARD
+  
+    create_board_manual_("C12","X");//
+    create_board_manual_("C14","X");//
+    create_board_manual_("C16","X");//
+
      create_board_manual_("C2","G");//
     create_board_manual_("C4","G");//
     create_board_manual_("C6","G");//
     
-    create_board_manual_("C9","T");//
     
-    create_board_manual_("C12","X");//
-    create_board_manual_("C14","X");//
-    create_board_manual_("C16","X");//
+     create_board_manual_("C9","T");//
+     
 
     //---------------------------
 
