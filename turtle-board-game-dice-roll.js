@@ -13,18 +13,8 @@ function roll_(strCell)
     c.setValue(Math.floor(randomNumber_()*6) + 1);
   } catch(e) {Browser.msgBox(e.message);}
 }
-/*
-function create_board_(strCell) //test NOT ACTUALLY USED
-{
-  var c;
-  var aColumnName = ["A","B","C","D","E","F"];
-  try
-  {
-    c = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("board").getRange(strCell);
-    c.setValue(Math.floor(randomNumber_()*6) + 1);
-  } catch(e) {Browser.msgBox(e.message);}
-}
-*/
+
+
 function rollTheDie()
 {
   var theCell;
@@ -63,23 +53,12 @@ function rollTheDie()
 
 function create_board_manual_(cell,letter) //test NOT ACTAULLY USED
 {
-  var c;
-  /*
-var ss = SpreadsheetApp.openById("1b9AcbeXnPHC_rsztyAB7InX6j9FNdbPd5Z79ICm7zZI");
-//var ss = SpreadsheetApp..getActiveSpreadsheet()
-
-var sheet = ss.getSheetByName('dice'); // or whatever is the name of the sheet 
-//var range = sheet.getRange(1,1); 
-var range = sheet.getRange(cell);
-  
-var data = range.getValue();  */
-
-  
+  var c;  
   try
   {
     
- var range2=SpreadsheetApp.getActiveSpreadsheet().getSheetByName("dice").getRange(cell);
- var cell4=   range2.getValue();
+    var range2=SpreadsheetApp.getActiveSpreadsheet().getSheetByName("dice").getRange(cell);
+    var cell4=   range2.getValue();
     
     
     c = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("board").getRange(cell4);
@@ -89,27 +68,15 @@ var data = range.getValue();  */
     
 //++++++++++++++++CREATE BOARD
      create_board_manual_("C2","G");//
-/*
-     for (index in aCells)
-        {
-          theCell = SpreadsheetApp.getActiveSpreadsheet().getRange(aCells[index]);
-          //theCell2 = SpreadsheetApp.getActiveSpreadsheet().getRange(board!aCells[index]);
-          //roll_(aCells[index]);
- //var aCells = ["B2","B3","B4","B5","B6","B7","B9","B10","B12","B13","B14","B15","B16","B17"];          
-  //        create_board_manual_("B2","B3","G");//
-  //        create_board_manual_("B4","B5","G");//
-  //        create_board_manual_("B6","B7","G");//
-          
-          create_board_manual_("B9","B10","T");//turtle
-          
-  //        create_board_manual_("B12","B13","X");//obstacle
-  //        create_board_manual_("B14","B15","X");//obstacle
-  //        create_board_manual_("B16","B17","X");//obstacle
-          
-         
-         
-        }     
-  */  
+    create_board_manual_("C4","G");//
+    create_board_manual_("C6","G");//
+    
+    create_board_manual_("C9","T");//
+    
+    create_board_manual_("C12","X");//
+    create_board_manual_("C14","X");//
+    create_board_manual_("C16","X");//
+
     //---------------------------
 
     
