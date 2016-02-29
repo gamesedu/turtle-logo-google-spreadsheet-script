@@ -64,22 +64,31 @@ function rollTheDie()
 function create_board_manual_(cell,letter) //test NOT ACTAULLY USED
 {
   var c;
+  /*
 var ss = SpreadsheetApp.openById("1b9AcbeXnPHC_rsztyAB7InX6j9FNdbPd5Z79ICm7zZI");
+//var ss = SpreadsheetApp..getActiveSpreadsheet()
 
 var sheet = ss.getSheetByName('dice'); // or whatever is the name of the sheet 
 //var range = sheet.getRange(1,1); 
 var range = sheet.getRange(cell);
-var data = range.getValue();  
+  
+var data = range.getValue();  */
+
   
   try
   {
-    c = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("board").getRange(data);
+    
+ var range2=SpreadsheetApp.getActiveSpreadsheet().getSheetByName("dice").getRange(cell);
+ var cell4=   range2.getValue();
+    
+    
+    c = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("board").getRange(cell4);
     c.setValue(letter);
   } catch(e) {Browser.msgBox(e.message);}
 }    
     
 //++++++++++++++++CREATE BOARD
-     create_board_manual_("C3","G");//
+     create_board_manual_("C2","G");//
 /*
      for (index in aCells)
         {
